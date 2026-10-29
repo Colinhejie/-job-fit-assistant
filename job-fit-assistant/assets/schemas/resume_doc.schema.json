@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jfa.resume_doc/1",
+  "title": "简历文档模型",
+  "description": "导出的唯一内容来源。身份字段来自事实档案，text 字段来自修改方案；导出器不读取其他任何输入。",
+  "type": "object",
+  "required": ["schema", "name", "experiences"],
+  "properties": {
+    "schema": { "type": "string", "const": "jfa.resume_doc/1" },
+    "job_id": { "type": "string" },
+    "company": { "type": "string" },
+    "job_title": { "type": "string" },
+    "name": { "type": "string" },
+    "name_fact_id": { "type": "string" },
+    "contacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["text", "fact_id"],
+        "properties": {
+          "type": { "type": "string" },
+          "text": { "type": "string" },
+          "fact_id": { "type": "string" }
+        }
+      }
+    },
+    "target_title": { "type": "string" },
+    "summary": {
+      "type": ["object", "null"],
+      "properties": {
+        "text": { "type": "string" },
+        "fact_ids": { "type": "array", "items": { "type": "string" } },
+        "verification_status": { "type": "string" }
+      }
+    },
+    "skills": { "type": "array" },
+    "experiences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["fact_id", "company", "title", "bullets"],
+        "properties": {
+          "fact_id": { "type": "string" },
+          "company": { "type": "string" },
+          "title": { "type": "string" },
+          "period": { "type": "string" },
+          "location": { "type": "string" },
+          "bullets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["text", "fact_ids", "verification_status"],
+              "properties": {
+                "text": { "type": "string" },
+                "fact_ids": { "type": "array", "items": { "type": "string" } },
+                "verification_status": { "type": "string" },
+                "requirement_ids": { "type": "array" },
+                "change_id": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "education": { "type": "array" },
+    "achievements": { "type": "array" },
+    "pending_items": { "type": "array" },
+    "stats": { "type": "object" },
+    "generated_at": { "type": "string" }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jfa.preferences/1",
+  "title": "求职偏好",
+  "description": "hard 是硬条件（先判断），soft 只用于排序。未知信息不会被当作不符合。",
+  "type": "object",
+  "required": ["schema", "hard"],
+  "properties": {
+    "schema": { "type": "string", "const": "jfa.preferences/1" },
+    "hard": {
+      "type": "object",
+      "properties": {
+        "cities": { "type": "array", "items": { "type": "string" } },
+        "work_modes": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["坐班", "混合办公", "远程", "未说明"] }
+        },
+        "min_monthly_base": { "type": ["number", "null"], "minimum": 0 },
+        "target_annual": { "type": ["number", "null"], "minimum": 0 },
+        "target_monthly": { "type": ["number", "null"], "minimum": 0 },
+        "target_months_per_year": { "type": ["integer", "null"], "minimum": 12, "maximum": 24 },
+        "required_degree_max": {
+          "type": "string",
+          "enum": ["", "高中", "中专", "大专", "专科", "本科", "硕士", "博士", "MBA"]
+        },
+        "exclude_companies": { "type": "array", "items": { "type": "string" } },
+        "must_have_keywords": { "type": "array", "items": { "type": "string" } },
+        "exclude_keywords": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "soft": {
+      "type": "object",
+      "properties": {
+        "weights": {
+          "type": "object",
+          "properties": {
+            "title_match": { "type": "number" },
+            "skill_overlap": { "type": "number" },
+            "salary_fit": { "type": "number" },
+            "location_fit": { "type": "number" }
+          }
+        },
+        "preferred_titles": { "type": "array", "items": { "type": "string" } },
+        "preferred_industries": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": "string" }
+      }
+    },
+    "open_questions": { "type": "array", "items": { "type": "string" } }
+  }
+}

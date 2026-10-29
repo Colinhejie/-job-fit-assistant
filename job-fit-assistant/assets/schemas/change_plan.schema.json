@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jfa.change_plan/1",
+  "title": "简历修改方案",
+  "description": "只提供措辞；公司/职位/时间/学历/姓名由事实档案注入。verification_status=pending_confirmation 的内容默认不写入正式简历。",
+  "type": "object",
+  "required": ["schema", "target_title", "experiences"],
+  "properties": {
+    "schema": { "type": "string", "const": "jfa.change_plan/1" },
+    "job_id": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "version": { "type": "integer" },
+    "target_title": {
+      "type": "object",
+      "properties": {
+        "text": { "type": "string" },
+        "change_reason": { "type": "string" },
+        "requirement_ids": { "type": "array", "items": { "type": "string" } },
+        "fact_ids": { "type": "array", "items": { "type": "string" } },
+        "verification_status": { "type": "string", "enum": ["verified", "pending_confirmation"] }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "properties": {
+        "before": { "type": "string" },
+        "after": { "type": "string" },
+        "change_reason": { "type": "string" },
+        "requirement_ids": { "type": "array", "items": { "type": "string" } },
+        "fact_ids": { "type": "array", "items": { "type": "string" } },
+        "verification_status": { "type": "string", "enum": ["verified", "pending_confirmation"] }
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["fact_id", "after"],
+        "properties": {
+          "fact_id": { "type": "string" },
+          "before": { "type": "string" },
+          "after": { "type": "string" },
+          "change_reason": { "type": "string" },
+          "requirement_ids": { "type": "array", "items": { "type": "string" } },
+          "verification_status": { "type": "string", "enum": ["verified", "pending_confirmation"] }
+        }
+      }
+    },
+    "experiences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["fact_id", "bullets"],
+        "properties": {
+          "fact_id": { "type": "string" },
+          "order": { "type": "integer" },
+          "omit": { "type": "boolean" },
+          "omit_reason": { "type": "string" },
+          "bullets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["after", "fact_ids"],
+              "properties": {
+                "before": { "type": "string" },
+                "after": { "type": "string" },
+                "change_reason": { "type": "string" },
+                "requirement_ids": { "type": "array", "items": { "type": "string" } },
+                "fact_ids": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+                "verification_status": {
+                  "type": "string",
+                  "enum": ["verified", "pending_confirmation"]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "greeting": {
+      "type": "object",
+      "properties": {
+        "text": { "type": "string" },
+        "requirement_ids": { "type": "array", "items": { "type": "string" } },
+        "fact_ids": { "type": "array", "items": { "type": "string" } },
+        "verification_status": { "type": "string", "enum": ["verified", "pending_confirmation"] }
+      }
+    },
+    "compressions": { "type": "array" },
+    "open_questions": { "type": "array", "items": { "type": "string" } },
+    "notes": { "type": "array", "items": { "type": "string" } }
+  }
+}

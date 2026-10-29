@@ -1,0 +1,139 @@
+{
+  "schema": "jfa.resume_doc/1",
+  "job_id": "job-fef9ce14",
+  "company": "示例科技有限公司",
+  "job_title": "后端开发工程师",
+  "name": "张三",
+  "name_fact_id": "F-0003",
+  "contacts": [
+    {
+      "type": "email",
+      "text": "zhangsan@example.com",
+      "fact_id": "F-0001"
+    },
+    {
+      "type": "phone",
+      "text": "13800001111",
+      "fact_id": "F-0002"
+    },
+    {
+      "type": "city",
+      "text": "上海",
+      "fact_id": "F-0004"
+    }
+  ],
+  "target_title": "后端开发工程师",
+  "summary": {
+    "text": "后端开发，做过订单系统接口开发与查询链路重构，使用 Python、MySQL、Redis。习惯把接口文档与线上排查一起做，愿意在业务链条上多走一步。",
+    "fact_ids": [
+      "F-0005",
+      "F-0015",
+      "F-0016",
+      "F-0017"
+    ],
+    "verification_status": "verified",
+    "change_id": ""
+  },
+  "skills": [
+    {
+      "text": "Python（订单系统与后台服务中使用）",
+      "fact_ids": [
+        "F-0015"
+      ],
+      "verification_status": "verified",
+      "change_id": "",
+      "source_label": "Python"
+    },
+    {
+      "text": "MySQL（订单系统与后台服务中使用）",
+      "fact_ids": [
+        "F-0016"
+      ],
+      "verification_status": "verified",
+      "change_id": "",
+      "source_label": "MySQL"
+    },
+    {
+      "text": "Redis（订单系统与后台服务中使用）",
+      "fact_ids": [
+        "F-0017"
+      ],
+      "verification_status": "verified",
+      "change_id": "",
+      "source_label": "Redis"
+    }
+  ],
+  "experiences": [
+    {
+      "fact_id": "F-0005",
+      "company": "星河数据科技有限公司",
+      "title": "后端开发工程师",
+      "period": "2021-03 – 2023-06",
+      "location": "",
+      "bullets": [
+        {
+          "text": "承担订单系统接口开发，配合团队重构订单查询链路，将平均响应时间从 800ms 降到 300ms",
+          "fact_ids": [
+            "F-0005"
+          ],
+          "verification_status": "verified",
+          "change_id": "",
+          "requirement_ids": [
+            "R-001"
+          ]
+        },
+        {
+          "text": "负责编写接口文档与值班排查，累计处理线上工单 60 余个",
+          "fact_ids": [
+            "F-0005"
+          ],
+          "verification_status": "verified",
+          "change_id": "",
+          "requirement_ids": []
+        }
+      ]
+    },
+    {
+      "fact_id": "F-0006",
+      "company": "云帆网络有限公司",
+      "title": "初级开发工程师",
+      "period": "2019-07 – 2021-02",
+      "location": "",
+      "bullets": [
+        {
+          "text": "参与内部管理后台开发，使用 Python 与 MySQL 完成报表导出模块",
+          "fact_ids": [
+            "F-0006"
+          ],
+          "verification_status": "verified",
+          "change_id": "",
+          "requirement_ids": []
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "fact_id": "F-0012",
+      "school": "云帆大学",
+      "degree": "本科",
+      "major": "计算机科学与技术",
+      "date_raw": "2015.09 - 2019.06",
+      "text": "云帆大学 | 计算机科学与技术 | 本科 | 2015.09 - 2019.06"
+    }
+  ],
+  "achievements": [
+    {
+      "fact_id": "F-0030",
+      "text": "证书：软件设计师（中级）"
+    }
+  ],
+  "pending_items": [],
+  "generated_at": "2026-10-27T17:56:47+08:00",
+  "stats": {
+    "experiences": 2,
+    "bullets": 3,
+    "skills": 3,
+    "pending": 0
+  }
+}

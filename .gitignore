@@ -1,0 +1,53 @@
+# 用户资料与本地生成物一律不进仓库
+job-fit-workspace/
+.demo-ws/
+.e2e-ws/
+.unit-base/
+.unit-out/
+.jfa-selftest/
+
+# 测试夹具由脚本生成（含二进制与合成简历）
+tests/fixtures/*
+!tests/fixtures/.gitkeep
+
+# E2E 命令行日志
+tests/.e2e-logs/
+
+# 生成过程中的探针
+.probe/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# 编辑器与系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 本地配置里的密钥（本工具不需要，但防手滑）
+.env
+*.key
+*.pem
+
+tests/acceptance/heldout/
+tests/acceptance/artifacts/
+tests/acceptance/acceptance.json
+review/
+tests/acceptance/final/
+tests/acceptance/acceptance*.json
+tests/acceptance/ACCEPTANCE_REPORT.md
+docs/host-verification-record.md
+.venv-ocr/
+.ocr-test/
+.logs/
+tests/acceptance/OCR-REAL-RESULTS.md
+
+# 打包产物（zip 与 staging 目录不入库，发布时用脚本重建）
+release/

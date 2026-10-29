@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jfa.block/1",
+  "title": "提取文本块",
+  "description": "简历原文的最小引用单元。页码只在源格式真的有页码时填写（PDF/图片），DOCX 不编造页码。",
+  "type": "object",
+  "required": ["block_id", "source_id", "text", "method", "check_status"],
+  "properties": {
+    "block_id": { "type": "string", "pattern": "^B-[0-9]{4}$" },
+    "source_id": { "type": "string" },
+    "text": { "type": "string" },
+    "method": {
+      "type": "string",
+      "enum": [
+        "plain_text", "docx_paragraph", "docx_table", "docx_textbox",
+        "docx_embedded_image", "pdf_text_layer", "pdf_page_render",
+        "image_file", "ocr", "fixture_test_double", "user_correction"
+      ]
+    },
+    "kind": {
+      "type": "string",
+      "enum": ["paragraph", "heading", "table_cell", "table_row", "textbox",
+               "image", "pdf_line", "ocr_line", "ocr_layout"]
+    },
+    "page": { "type": ["integer", "null"], "minimum": 1 },
+    "locator": { "type": "object" },
+    "confidence": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+    "check_status": {
+      "type": "string",
+      "enum": ["ok", "needs_review", "user_confirmed", "user_corrected", "unverified"]
+    },
+    "order": { "type": "integer" },
+    "flags": { "type": "array", "items": { "type": "string" } },
+    "notes": { "type": "string" },
+    "text_sha256": { "type": "string" }
+  }
+}

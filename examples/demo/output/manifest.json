@@ -1,0 +1,90 @@
+{
+  "schema": "jfa.export_manifest/1",
+  "job_id": "job-fef9ce14",
+  "company": "示例科技有限公司",
+  "title": "后端开发工程师",
+  "version": 1,
+  "exported_at": "2026-10-27T17:57:15+08:00",
+  "style": "default-zh-single-column",
+  "body_pt": 10.0,
+  "min_font_pt": 9.5,
+  "max_pages": 2,
+  "fit_attempts": [
+    {
+      "body_pt": 10.0,
+      "pages": 1
+    }
+  ],
+  "pdf_backend": "builtin",
+  "include_pending": false,
+  "outputs": {
+    "resume_docx": {
+      "path": "out\\job-fef9ce14\\v1\\示例科技有限公司-后端开发工程师-v1-20261027-175647.docx",
+      "bytes": 37710,
+      "sha256": "92407140dd639b53"
+    },
+    "resume_pdf": {
+      "path": "out\\job-fef9ce14\\v1\\示例科技有限公司-后端开发工程师-v1-20261027-175647.pdf",
+      "bytes": 136035,
+      "sha256": "20d3a38455a017b7"
+    },
+    "resume_txt": {
+      "path": "out\\job-fef9ce14\\v1\\示例科技有限公司-后端开发工程师-v1-20261027-175647.txt",
+      "bytes": 1031,
+      "sha256": "f421390e8b222aa4"
+    },
+    "change_diff_md": {
+      "path": "out\\job-fef9ce14\\v1\\示例科技有限公司-后端开发工程师-v1-20261027-175647-修改对照.md",
+      "bytes": 2799,
+      "sha256": "f538c5ded8397c10"
+    },
+    "match_report_md": {
+      "path": "out\\job-fef9ce14\\v1\\示例科技有限公司-后端开发工程师-v1-20261027-175647-匹配与缺口.md",
+      "bytes": 2076,
+      "sha256": "7198acacfad81fb0"
+    },
+    "fact_check_md": {
+      "path": "out\\job-fef9ce14\\v1\\示例科技有限公司-后端开发工程师-v1-20261027-175647-事实与待确认.md",
+      "bytes": 608,
+      "sha256": "cc33bc8aa4b35a47"
+    },
+    "greeting_md": {
+      "path": "out\\job-fef9ce14\\v1\\示例科技有限公司-后端开发工程师-v1-20261027-175647-打招呼草稿.md",
+      "bytes": 637,
+      "sha256": "e5ec9569c0f8b8b4"
+    },
+    "resume_doc_json": {
+      "path": "out\\job-fef9ce14\\v1\\示例科技有限公司-后端开发工程师-v1-20261027-175647-resume-doc.json",
+      "bytes": 3512,
+      "sha256": "36a67854a3ad0c3b"
+    },
+    "verification_json": {
+      "path": "out\\job-fef9ce14\\v1\\示例科技有限公司-后端开发工程师-v1-20261027-175647-校验结果.json",
+      "bytes": 2302,
+      "sha256": "05fccae0f0205fc7"
+    }
+  },
+  "verification": {
+    "available": true,
+    "ok": true,
+    "failed": 0,
+    "warned": 0
+  },
+  "plan_stats": {
+    "changes": 8,
+    "blocking": 0,
+    "warnings": 0,
+    "pending": 0,
+    "verified": 8
+  },
+  "pending_items": 0,
+  "greeting": {
+    "source": "agent_authored",
+    "verification_status": "verified"
+  },
+  "ready": {
+    "fully_tailored": true,
+    "reasons": [],
+    "statement": "已完成全面定制"
+  }
+}

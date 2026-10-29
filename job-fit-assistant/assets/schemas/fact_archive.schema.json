@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jfa.fact_archive/1",
+  "title": "个人事实档案",
+  "description": "与岗位无关的事实集合。confirm_status=user_confirmed 只表示用户确认，不代表第三方核实（verification_basis 恒为 self_attested）。",
+  "type": "object",
+  "required": ["schema", "person", "facts"],
+  "properties": {
+    "schema": { "type": "string", "const": "jfa.fact_archive/1" },
+    "generated_at": { "type": "string" },
+    "person": {
+      "type": "object",
+      "required": ["display_name"],
+      "properties": {
+        "display_name": { "type": "string" },
+        "name_fact_id": { "type": "string" }
+      }
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["fact_id", "kind", "content", "confirm_status", "verification_basis", "version"],
+        "properties": {
+          "fact_id": { "type": "string", "pattern": "^F-[0-9]{4}$" },
+          "kind": {
+            "type": "string",
+            "enum": ["identity", "contact", "education", "employment", "project",
+                     "skill", "achievement", "preference", "other"]
+          },
+          "label": { "type": "string" },
+          "content": { "type": "string", "minLength": 1 },
+          "structured": { "type": "object" },
+          "source": {
+            "type": "object",
+            "properties": {
+              "block_ids": { "type": "array", "items": { "type": "string" } },
+              "file": { "type": "string" },
+              "page": { "type": ["integer", "null"] },
+              "locator": { "type": "object" },
+              "method": { "type": "string" }
+            }
+          },
+          "confirm_status": {
+            "type": "string",
+            "enum": ["source_explicit", "user_confirmed", "unconfirmed", "conflict"]
+          },
+          "verification_basis": { "type": "string", "const": "self_attested" },
+          "provenance": { "type": "string", "enum": ["resume_extract", "user_statement"] },
+          "needs_review": { "type": "boolean" },
+          "conflicts_with": { "type": "array", "items": { "type": "string" } },
+          "parse_method": { "type": "string", "enum": ["explicit_delimiter", "inferred"] },
+          "version": { "type": "integer", "minimum": 1 },
+          "created_at": { "type": "string" },
+          "updated_at": { "type": "string" },
+          "revisions": { "type": "array", "items": { "type": "object" } }
+        }
+      }
+    },
+    "tenure": {
+      "type": "object",
+      "properties": {
+        "total_months": { "type": "integer", "minimum": 0 },
+        "total_text": { "type": "string" },
+        "raw_sum_months": { "type": "integer", "minimum": 0 },
+        "raw_sum_text": { "type": "string" },
+        "concurrent_detected": { "type": "boolean" },
+        "segments": { "type": "array" },
+        "note": { "type": "string" }
+      }
+    },
+    "deduped": { "type": "array" },
+    "notes": { "type": "array", "items": { "type": "string" } }
+  }
+}

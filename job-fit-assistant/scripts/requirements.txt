@@ -1,0 +1,20 @@
+# 必需依赖（固定版本，已在本仓库测试环境实测）
+# 测试环境：Windows 11 / Python 3.13.15
+python-docx==1.2.0
+PyMuPDF==1.28.2
+Pillow==12.3.0
+
+# 传递依赖（通常自动安装，固定版本以防漂移）
+lxml==6.1.3
+
+# 可选：仅 Windows 下用 Word 导出 PDF 时需要
+# pywin32==311
+
+# 安装：
+#   pip install -r requirements.txt
+#
+# 说明：
+# - python-docx：生成/读取 DOCX（必需）
+# - PyMuPDF：PDF 逐页检测、导出页渲染校验、内置 PDF 渲染器（必需）
+# - Pillow：读取 PNG/JPG、照片插入、空白页墨水占比计算（必需）
+# - 不依赖任何模型 API，不需要联网（OCR 首次下载模型除外）

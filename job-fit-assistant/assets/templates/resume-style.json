@@ -1,0 +1,53 @@
+{
+  "name": "default-zh-single-column",
+  "description": "简洁单栏中文简历模板：A4、无表格、正文不小于 9.5pt，便于 ATS 与人工阅读。可复制本文件修改，用 --style 指定。",
+  "page": {
+    "size": "A4",
+    "margins_cm": {
+      "top": 1.5,
+      "bottom": 1.5,
+      "left": 1.7,
+      "right": 1.7
+    }
+  },
+  "fonts": {
+    "latin": "Calibri",
+    "east_asia": "Microsoft YaHei"
+  },
+  "sizes": {
+    "name": 19,
+    "target_title": 10.5,
+    "contact": 9.5,
+    "section": 10.5,
+    "body": 10,
+    "meta": 9.5
+  },
+  "min_body_pt": 9.5,
+  "colors": {
+    "text": "1A1A1A",
+    "accent": "1F4E5F",
+    "muted": "4A4A4A"
+  },
+  "layout": {
+    "sections": ["summary", "skills", "experience", "education", "achievements"],
+    "bullet_char": "·",
+    "section_rule": true,
+    "photo": {
+      "enabled": false,
+      "width_cm": 2.6
+    }
+  },
+  "labels": {
+    "summary": "个人简介",
+    "skills": "核心技能",
+    "experience": "工作经历",
+    "education": "教育背景",
+    "achievements": "证书与荣誉"
+  },
+  "rules": [
+    "正文最小字号 9.5pt：不允许用更小的字把两页压成一页",
+    "单栏、无分栏无表格排版，保证 ATS 解析与打印都正常",
+    "公司、职位、任职时间、学校、学历来自事实档案，改写方案无权修改",
+    "照片默认关闭；开启后仅在 PDF 与 DOCX 首页右上角出现"
+  ]
+}

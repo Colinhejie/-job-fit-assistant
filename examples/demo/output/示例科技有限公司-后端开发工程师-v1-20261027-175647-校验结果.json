@@ -1,0 +1,106 @@
+{
+  "ok": true,
+  "checks": [
+    {
+      "id": "docx_readable",
+      "name": "DOCX 可重新读取",
+      "status": "pass",
+      "detail": "提取到 481 个字符"
+    },
+    {
+      "id": "docx_complete",
+      "name": "DOCX 内容完整",
+      "status": "pass",
+      "detail": "全部段落写入成功",
+      "missing": []
+    },
+    {
+      "id": "pdf_exists",
+      "name": "PDF 已生成",
+      "status": "pass",
+      "detail": "133 KB"
+    },
+    {
+      "id": "pdf_pages",
+      "name": "PDF 页数",
+      "status": "pass",
+      "detail": "共 1 页"
+    },
+    {
+      "id": "pdf_blank_pages",
+      "name": "空白页检查",
+      "status": "pass",
+      "detail": "每页都有实际内容",
+      "pages": []
+    },
+    {
+      "id": "pdf_glyphs",
+      "name": "乱码检查",
+      "status": "pass",
+      "detail": "未发现乱码字符",
+      "pages": []
+    },
+    {
+      "id": "pdf_overflow",
+      "name": "溢出与截断检查",
+      "status": "pass",
+      "detail": "所有文字都在页边距内",
+      "pages": []
+    },
+    {
+      "id": "pdf_overlap",
+      "name": "重叠检查",
+      "status": "pass",
+      "detail": "未发现文字重叠",
+      "pages": []
+    },
+    {
+      "id": "pdf_font_floor",
+      "name": "字号下限检查",
+      "status": "pass",
+      "detail": "最小字号 9.5pt，未低于 9.5pt",
+      "pages": [],
+      "min_size": 9.5
+    },
+    {
+      "id": "pdf_line_coverage",
+      "name": "文字遗漏检查",
+      "status": "pass",
+      "detail": "预期 19 行，PDF 中可定位 19 行（100.0%）",
+      "ratio": 1.0,
+      "missing": []
+    },
+    {
+      "id": "docx_pdf_consistency",
+      "name": "DOCX 与 PDF 一致性",
+      "status": "pass",
+      "detail": "字符覆盖率 100.0%",
+      "ratio": 1.0
+    },
+    {
+      "id": "pdf_selectable",
+      "name": "PDF 文字可选中/可搜索",
+      "status": "pass",
+      "detail": "可提取 484 字"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "chars": 484,
+      "ink_ratio": 0.04143,
+      "min_font_pt": null,
+      "overflow_lines": [],
+      "overlaps": 0,
+      "tiny_fonts": []
+    }
+  ],
+  "failures": [],
+  "warnings": [],
+  "summary": {
+    "passed": 12,
+    "failed": 0,
+    "warned": 0,
+    "verdict": "导出校验通过"
+  }
+}

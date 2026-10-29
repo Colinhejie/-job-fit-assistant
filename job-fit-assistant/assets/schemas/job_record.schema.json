@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jfa.job_record/1",
+  "title": "职位记录",
+  "description": "一次职位读取的完整留痕：原文、来源、读取时间与范围、结构化栏目、薪资构成、完整性判断。",
+  "type": "object",
+  "required": ["schema", "job_id", "company", "title", "source", "sections", "completeness"],
+  "properties": {
+    "schema": { "type": "string", "const": "jfa.job_record/1" },
+    "job_id": { "type": "string", "pattern": "^job-[0-9a-f]{8}$" },
+    "company": { "type": "string", "minLength": 1 },
+    "company_normalized": { "type": "string" },
+    "title": { "type": "string", "minLength": 1 },
+    "location": { "type": "string" },
+    "dedupe_key": { "type": "string" },
+    "raw_sha256": { "type": "string" },
+    "raw_chars": { "type": "integer", "minimum": 1 },
+    "raw_path": { "type": "string" },
+    "source": {
+      "type": "object",
+      "required": ["kind", "read_at", "read_scope"],
+      "properties": {
+        "kind": { "type": "string", "enum": ["host_browser", "user_paste", "file"] },
+        "url": { "type": "string" },
+        "host_tool": { "type": "string" },
+        "read_at": { "type": "string" },
+        "read_scope": { "type": "string", "enum": ["full", "partial", "unknown"] },
+        "job_ref": { "type": "string" },
+        "detail_region": { "type": "string" },
+        "session_id": { "type": "string" },
+        "index": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "sections": {
+      "type": "object",
+      "properties": {
+        "responsibilities": { "type": "array", "items": { "type": "string" } },
+        "must_have": { "type": "array", "items": { "type": "string" } },
+        "nice_to_have": { "type": "array", "items": { "type": "string" } },
+        "education_experience": { "type": "array", "items": { "type": "string" } },
+        "city": { "type": "string" },
+        "work_mode": { "type": "string" },
+        "salary_raw": { "type": "string" },
+        "heading_detected": { "type": "boolean" }
+      }
+    },
+    "salary": {
+      "type": "object",
+      "properties": {
+        "kind": { "type": "string", "enum": ["unknown", "negotiable", "fixed", "range"] },
+        "currency": { "type": "string" },
+        "period": { "type": "string", "enum": ["month", "year", "day"] },
+        "min_monthly": { "type": ["number", "null"] },
+        "max_monthly": { "type": ["number", "null"] },
+        "months_per_year": { "type": "integer", "minimum": 12, "maximum": 24 },
+        "has_commission": { "type": "boolean" },
+        "has_performance_pay": { "type": "boolean" },
+        "period_assumed": { "type": "boolean" },
+        "raw": { "type": "string" },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "identity": {
+      "type": "object",
+      "properties": {
+        "verified": { "type": "boolean" },
+        "company_in_header": { "type": "boolean" },
+        "title_in_header": { "type": "boolean" },
+        "company_in_text": { "type": "boolean" },
+        "title_in_text": { "type": "boolean" },
+        "location_in_text": { "type": "boolean" },
+        "header_lines": { "type": "integer" },
+        "reasons": { "type": "array", "items": { "type": "string" } },
+        "override": { "type": "object" }
+      }
+    },
+    "completeness": {
+      "type": "object",
+      "required": ["is_complete", "missing"],
+      "properties": {
+        "is_complete": { "type": "boolean" },
+        "missing": { "type": "array", "items": { "type": "string" } },
+        "read_scope": { "type": "string" },
+        "warning": { "type": "string" }
+      }
+    },
+    "possible_duplicates": { "type": "array", "items": { "type": "string" } },
+    "notes": { "type": "string" },
+    "created_at": { "type": "string" }
+  }
+}
